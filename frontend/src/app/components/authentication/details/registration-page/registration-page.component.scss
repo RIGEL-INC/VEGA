@@ -1,0 +1,56 @@
+* {
+
+}
+.nigger {
+  background-color: var(--background-color);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+.form-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  width: 860px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: var(--accent);
+  color: var(--text-color);
+
+
+  height: 500px;
+}
+
+h2 {
+  text-align: center;
+}
+.form-registration {
+  padding: 20px;
+  border: 1px solid blue;
+
+
+}
+.form-signup {
+  padding: 20px;
+  border: 1px solid blue;
+
+}
+.container {
+
+}
+
+.footer {
+  height: 164px;
+  background-color: var(--background-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.buy_me_a_coffee {
+  background-color: #cccccc;
+  height: 50px;
+  width: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
