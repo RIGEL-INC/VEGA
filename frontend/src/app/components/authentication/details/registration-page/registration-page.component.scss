@@ -6,6 +6,7 @@
   display: grid;
   align-items: center;
   justify-content: center;
+
 }
 .form-wrapper {
   display: grid;
@@ -17,6 +18,8 @@
   background-color: var(--accent);
   color: var(--text-color);
 
+  border: 1px solid var(--text-muted);
+  border-radius: 50px;
 
   height: 500px;
 }
@@ -26,13 +29,14 @@ h2 {
 }
 .form-registration {
   padding: 20px;
-  border: 1px solid blue;
+
+
 
 
 }
 .form-signup {
   padding: 20px;
-  border: 1px solid blue;
+  border-left: 1px solid var(--text-muted);
 
 }
 .container {
@@ -54,3 +58,10 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+
+.form_input_container {
+  padding: 70px;
+}
+//.email_container {
+//  margin-bottom: 50px;
+//}

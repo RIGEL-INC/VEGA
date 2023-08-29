@@ -2,13 +2,30 @@
   <div class="form-wrapper">
 
     <div class="form-registration">
-      <h2>{{ registerTitle }}</h2>
+      <h2><u>{{ registerTitle }}</u></h2>
 
       <div class="form_input_container">
 
+<!--      <div class="email_container">-->
+        <div class="card flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input type="text" pInputText placeholder="Email"/>
+          </span>
+        </div>
+<!--      </div>-->
 
-        <!--использовать PrimeNg для инпутов и хорошей формы-->
 
+        <div class="card flex flex-wrap justify-content-center gap-3">
+          <span class="p-input-icon-left">
+          <i class="pi pi-lock"></i>
+          <input type="text" pInputText placeholder="Password"/>
+          </span>
+        </div>
+
+        <div class="card flex justify-content-center">
+          <p-button label="Submit"></p-button>
+        </div>
 
 
       </div>
@@ -16,13 +33,12 @@
     </div>
 
     <div class="form-signup">
-      <h2>{{ loginTitle }}</h2>
+      <h2><u>{{ loginTitle }}</u></h2>
 
       <div class="form_input_container">
 
 
         <!--использовать PrimeNg для инпутов и хорошей формы-->
-
 
 
       </div>
@@ -33,6 +49,6 @@
 </div>
 <footer class="footer">
   <div class="buy_me_a_coffee">
-    Buy me a coffee (button)
+    <a href="#">Buy me a coffee (button)</a>
   </div>
 </footer>
