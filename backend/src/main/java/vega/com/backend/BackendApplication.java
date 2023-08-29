@@ -3,6 +3,7 @@ package vega.com.backend;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import vega.com.backend.common.JobTag;
 import vega.com.backend.models.Person;
 import vega.com.backend.service.PeopleService;
 
@@ -23,6 +24,8 @@ public class BackendApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        peopleService.setPeople(List.of(new Person(1,"Archie"),new Person(2,"Tony")));
+        peopleService.setPeople(List.of(
+                new Person(1,"Archie", JobTag.BACKEND),
+                new Person(2,"Tony",JobTag.FRONTEND)));
     }
 }
