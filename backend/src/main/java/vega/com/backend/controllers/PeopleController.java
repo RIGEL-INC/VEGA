@@ -1,10 +1,7 @@
 package vega.com.backend.controllers;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import vega.com.backend.models.Person;
 import vega.com.backend.service.PeopleService;
 
@@ -19,6 +16,7 @@ public class PeopleController {
     }
 
     @GetMapping("{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Person> getById(@PathVariable("id") int id){
         return peopleService.getById(id);
     }
