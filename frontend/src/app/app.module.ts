@@ -13,6 +13,7 @@ import { ProfilePageComponent } from './components/main/details/profile-page/pro
 import { AuthLayoutComponent } from './components/authentication/details/UI/auth-layout/auth-layout.component';
 import {InputTextModule} from "primeng/inputtext";
 import {PaginatorModule} from "primeng/paginator";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -32,6 +33,8 @@ import {PaginatorModule} from "primeng/paginator";
     InputTextModule,
     PaginatorModule,
     ButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
