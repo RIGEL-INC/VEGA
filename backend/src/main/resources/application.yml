@@ -1,0 +1,33 @@
+
+server:
+  port: 8080
+
+# Settings of Data Base
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/vega
+    username: postgres
+    password: 1111
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:/db/database.sql
+
+  # Setting of JPA (Java Persistence API)
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: false
+        show_sql: true
+    defer-datasource-initialization: true
+
+
+
+# SWAGGER (http://localhost:8080/swagger-ui/index.html)
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
