@@ -9,6 +9,4 @@ import vega.com.backend.dto.AbstractDTO;
 public class PersonDTOResp extends AbstractDTO {
 
     private String username;
-
-    private String password;
 }

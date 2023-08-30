@@ -13,11 +13,6 @@ public class BackendApplication implements CommandLineRunner {
         SpringApplication.run(BackendApplication.class, args);
     }
 
-    @Bean
-    public ModelMapper modelMapper(){
-        return new ModelMapper();
-    }
-
     @Override
     public void run(String... args) throws Exception {
 
