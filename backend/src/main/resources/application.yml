@@ -24,6 +24,10 @@ spring:
         format_sql: false
     defer-datasource-initialization: true
 
+  output:
+    ansi:
+      enabled: ALWAYS
+
 application:
   security:
     jwt:
