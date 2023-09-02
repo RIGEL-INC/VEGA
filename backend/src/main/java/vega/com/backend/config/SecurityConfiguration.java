@@ -28,22 +28,40 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
+//        http
+//                .cors(AbstractHttpConfigurer::disable)
+//                .exceptionHandling(exceptions -> exceptions
+//                        .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
+//                )
+//                .authorizeHttpRequests((authorize) ->
+//                        authorize.requestMatchers("/api/v1.0/auth/**",
+//                                        "/swagger-ui/**",
+//                                        "/v3/api-docs/swagger-config",
+//                                        "/v3/api-docs").permitAll()
+//                        .anyRequest().authenticated()
+//                )
+//                .sessionManagement((session) -> session
+//                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//                )
+//                .httpBasic(Customizer.withDefaults())
+//                .authenticationProvider(authenticationProvider)
+//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
         http
-                .cors(AbstractHttpConfigurer::disable)
-                .exceptionHandling(exceptions -> exceptions
-                        .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
-                )
-                .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/api/v1.0/auth/**",
-                                        "/swagger-ui/**",
-                                        "/v3/api-docs/swagger-config",
-                                        "/v3/api-docs").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .sessionManagement((session) -> session
-                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                )
-                .httpBasic(Customizer.withDefaults())
+                .csrf()
+                .disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/api/v1.0/auth/**",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/swagger-config",
+                        "/v3/api-docs")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
