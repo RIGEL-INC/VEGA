@@ -30,11 +30,9 @@ public class SecurityConfiguration {
                 .cors(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/api/v1.0/auth/**",
-                                "/swagger-ui/**",
-                                "/swagger-ui.html",
-                                "/v2/api-docs",
-                                "/webjars/**",
-                                "/swagger-resources/**").permitAll()
+                                        "/swagger-ui/**",
+                                        "/v3/api-docs/swagger-config",
+                                        "/v3/api-docs").permitAll()
                         .anyRequest().authenticated()
                 )
                 .sessionManagement((sessionManagement) ->
