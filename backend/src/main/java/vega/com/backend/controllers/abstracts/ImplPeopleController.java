@@ -1,6 +1,7 @@
 package vega.com.backend.controllers.abstracts;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -11,17 +12,25 @@ import vega.com.backend.dto.responses.PersonDTOResp;
 import vega.com.backend.services.PeopleService;
 import vega.com.backend.util.response.ResponseWithStatusAndDate;
 
-@Tag(name = "People",description = "A REST controller that allows you to commit with the people of this site")
+
+
+@Tag(name = "people",description = "a REST controller that allows you to commit with the people of this site")
 public abstract class ImplPeopleController implements IPeopleController {
 
     private final PeopleService peopleService;
+    private final Logger logger;
 
-    public ImplPeopleController(PeopleService peopleService) {
+    public ImplPeopleController(PeopleService peopleService,
+                                Logger logger) {
         this.peopleService = peopleService;
+        this.logger=logger;
     }
 
     @Override
     public ResponseEntity<ResponseWithStatusAndDate<PersonDTOResp>> get(int id) {
+        logger.info("---------------------------------------");
+        logger.info("GET BY ID METHOD");
+        logger.info("---------------------------------------");
         return peopleService.get(id);
     }
 

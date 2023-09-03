@@ -1,5 +1,6 @@
 package vega.com.backend.util.response;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +17,7 @@ public class ResponseWithStatusAndDate <E extends AbstractDTO> {
 
     private HttpStatus status;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime time;
 
     private List<E> payload;

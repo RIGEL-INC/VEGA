@@ -7,6 +7,8 @@ import lombok.*;
 import vega.com.backend.common.RoleTag;
 import vega.com.backend.models.common.AbstractEntity;
 
+import java.util.List;
+
 @Entity
 @Table(name = "person")
 @Builder
@@ -37,4 +39,10 @@ public class Person extends AbstractEntity {
     @Column(name = "role")
     @Enumerated(value = EnumType.STRING)
     private RoleTag role;
+
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private Details info;
+
+    @OneToMany(mappedBy = "owner",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+    private List<Article>articles;
 }
