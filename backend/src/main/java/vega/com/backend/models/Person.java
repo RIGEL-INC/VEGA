@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import vega.com.backend.common.RoleTag;
 import vega.com.backend.models.common.AbstractEntity;
+import vega.com.backend.models.common.IPersonValidation;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person extends AbstractEntity {
+public class Person extends AbstractEntity implements IPersonValidation {
 
     @Id
     @Column(name = "person_id")
