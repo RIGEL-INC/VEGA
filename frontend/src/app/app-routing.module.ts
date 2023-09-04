@@ -5,12 +5,14 @@ import {
   RegistrationPageComponent
 } from "./components/authentication/details/registration-page/registration-page.component";
 import {ProfilePageComponent} from "./components/main/details/profile-page/profile-page.component";
+import {AuthPageComponent} from "./components/authentication/details/auth-page/auth-page.component";
 
 const routes: Routes = [
   {
     path: '', component: AuthLayoutComponent, children: [
       {path: '', redirectTo: '/', pathMatch: 'full'},
       {path: '', component: RegistrationPageComponent},
+      {path: 'login', component: AuthPageComponent},
     ]
   },
 

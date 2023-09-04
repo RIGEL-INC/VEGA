@@ -1,6 +1,18 @@
-<header class="header">
-  <div class="logo">
-    Логотип Соц Сети
+<div class="app-container">
+  <div class="header">
+    <div class="logo">
+      <svg>
+        <use><!--      <img src="app/img/svg/YurisNight.svg">-->      </use>
+      </svg>
+
+    </div>
   </div>
-</header>
+  <footer class="footer">
+    <p-button (click)="alert()"
+              label="Buy me a coffee">
+    </p-button>
+  </footer>
+</div>
+
+
 <router-outlet></router-outlet>
