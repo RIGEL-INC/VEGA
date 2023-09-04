@@ -1,9 +1,11 @@
 package vega.com.backend.controllers.abstracts;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 import vega.com.backend.controllers.interfaces.IPeopleController;
 import vega.com.backend.dto.requests.PersonDTOForPatchReqst;
@@ -12,18 +14,16 @@ import vega.com.backend.dto.responses.PersonDTOResp;
 import vega.com.backend.services.PeopleService;
 import vega.com.backend.util.response.ResponseWithStatusAndDate;
 
-
-
+@RequiredArgsConstructor
 @Tag(name = "people",description = "a REST controller that allows you to commit with the people of this site")
 public abstract class ImplPeopleController implements IPeopleController {
 
     private final PeopleService peopleService;
     private final Logger logger;
 
-    public ImplPeopleController(PeopleService peopleService,
-                                Logger logger) {
-        this.peopleService = peopleService;
-        this.logger=logger;
+    @Override
+    public ResponseEntity<ResponseWithStatusAndDate<PersonDTOResp>> get(UserDetails userDetails) {
+        return peopleService.get(userDetails);
     }
 
     @Override

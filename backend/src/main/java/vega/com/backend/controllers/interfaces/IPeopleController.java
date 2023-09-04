@@ -7,6 +7,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import vega.com.backend.dto.requests.PersonDTOForPatchReqst;
@@ -15,6 +17,12 @@ import vega.com.backend.dto.responses.PersonDTOResp;
 import vega.com.backend.util.response.ResponseWithStatusAndDate;
 
 public interface IPeopleController {
+
+    @Operation(summary = "get user by principal")
+    @GetMapping("/user")
+    ResponseEntity<ResponseWithStatusAndDate<PersonDTOResp>>get(
+            @AuthenticationPrincipal UserDetails userDetails
+            );
 
     @Operation(summary = "get user by ID")
     @ApiResponses(value = {
