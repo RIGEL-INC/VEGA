@@ -5,11 +5,11 @@ import lombok.Getter;
 @Getter
 public enum RoleTag {
 
-    DEFAULT("default"),
-    USER("user"),
-    CREATOR("creator"),
-    MODERATOR("moderator"),
-    ADMIN("admin");
+    ROLE_DEFAULT("DEFAULT"),
+    ROLE_USER("USER"),
+    ROLE_CREATOR("CREATOR"),
+    ROLE_MODERATOR("MODERATOR"),
+    ROLE_ADMIN("ADMIN");
 
     private final String tag;
 

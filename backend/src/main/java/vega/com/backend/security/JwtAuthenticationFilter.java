@@ -1,4 +1,4 @@
-package vega.com.backend.config;
+package vega.com.backend.security;
 
 import io.jsonwebtoken.security.SignatureException;
 import jakarta.servlet.FilterChain;

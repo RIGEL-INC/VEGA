@@ -6,6 +6,9 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 import vega.com.backend.common.RoleTag;
 import vega.com.backend.models.common.AbstractEntity;
+import vega.com.backend.models.common.IPersonValidation;
+
+import java.util.List;
 
 @Entity
 @Table(name = "person")
@@ -14,7 +17,7 @@ import vega.com.backend.models.common.AbstractEntity;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Person extends AbstractEntity {
+public class Person extends AbstractEntity implements IPersonValidation {
 
     @Id
     @Column(name = "person_id")
@@ -37,4 +40,10 @@ public class Person extends AbstractEntity {
     @Column(name = "role")
     @Enumerated(value = EnumType.STRING)
     private RoleTag role;
+
+    @OneToOne(mappedBy = "owner", cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    private Details info;
+
+    @OneToMany(mappedBy = "owner",cascade = CascadeType.REMOVE,fetch = FetchType.EAGER)
+    private List<Article>articles;
 }
