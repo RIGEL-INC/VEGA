@@ -1,117 +1,86 @@
-<div class="nigger">
+<div class="app-container">
   <div class="form-wrapper">
-
-    <form
-      class="form-registration"
-      [formGroup]="formGroup"
-      (ngSubmit)="submit()"
-    >
-      <h2><u>{{ registerTitle }}</u></h2>
+    <form class="form-registration"
+          [formGroup]="formGroup" (ngSubmit)="register()">
+      <h2><b>{{ registerTitle }}</b></h2>
       <div class="form_input_container">
-        <div
-          class="card flex flex-wrap justify-content-center gap-3"
-          class="container"
-          [ngClass]="{invalid:
-        formGroup.get('email').touched &&
-        formGroup.get('email').invalid }"
+        <div class="card flex flex-wrap justify-content-center gap-3 container"
+             [ngClass]="{
+             invalid: formGroup.get('username').touched &&
+             formGroup.get('username').invalid }"
         >
-          <label for="email"><u>Email:</u></label>
-            <span class="p-input-icon-left">
-              <i class="pi pi-user"></i>
-              <input
-                id="email"
-                type="email"
-                pInputText
-                placeholder="Email"
-                formControlName="email"
-              />
-            </span>
-          <div
-            class="validation"
-            *ngIf="formGroup.get('email').touched &&
-            formGroup.get('email').invalid"
-          >
+          <label for="username"><b>Username:</b></label>
+          <span class="p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input id="username"
+                   type="email"
+                   name="username" required
+                   pInputText
+                   placeholder="Username"
+                   formControlName="username"
+                   [(ngModel)]="username"
+            />
+          </span>
+          <div class="validation"
+               *ngIf="formGroup.get('username').touched &&
+                      formGroup.get('username').invalid">
             <div class="small-container">
-              <small *ngIf="formGroup.get('email').errors.required">
-                Enter email
-              </small>
-              <small *ngIf="formGroup.get('email').errors.email">
-                Enter the correct email
-              </small>
+              <small *ngIf="formGroup.get('username').errors.required">Enter email</small>
+              <small *ngIf="formGroup.get('username').errors.email">Enter a valid email</small>
             </div>
-
           </div>
         </div>
-
-        <div
-          class="card flex flex-wrap justify-content-center gap-3"
-          class="container"
-          [ngClass]="{invalid:
-        formGroup.get('password').touched &&
-        formGroup.get('password').invalid }"
+        <div class="card flex flex-wrap justify-content-center gap-3 container"
+             [ngClass]="{ invalid:
+             formGroup.get('password').touched &&
+             formGroup.get('password').invalid }"
         >
-          <label for="password"><u>Password:</u></label>
-            <span class="p-input-icon-left">
-              <i class="pi pi-lock"></i>
-              <input
-                id="password"
-                type="password"
-                pInputText
-                placeholder="Password"
-                formControlName="password"
-              />
-            </span>
-          <div
-            class="validation"
-            *ngIf="formGroup.get('password').touched &&
-            formGroup.get('password').invalid"
+          <label for="password"><b>Password:</b></label>
+          <span class="p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input id="password"
+                   type="password"
+                   name="password" required
+                   pInputText
+                   placeholder="Password"
+                   formControlName="password"
+                   [(ngModel)]="password" />
+          </span>
+          <div class="validation"
+               *ngIf="formGroup.get('password').touched &&
+                      formGroup.get('password').invalid"
           >
             <div class="small-container">
-              <small *ngIf="formGroup.get('password').errors.required">
-                Enter a password
-              </small>
-              <small *ngIf="formGroup.get('password').errors.minlength">
-                Enter a password of at least
-                {{formGroup.get('password').errors.minlength.requiredLength}}
-                characters. Now it 's
-                {{formGroup.get('password').errors.minlength.actualLength}}
+              <small *ngIf="formGroup.get('password').errors.required">Enter a password</small>
+              <small
+                *ngIf="formGroup.get('password').hasError('minlength')">Enter a password of at least
+                {{ formGroup.get('password').getError('minlength').requiredLength }}
+                characters. Now it's
+                {{ formGroup.get('password').getError('minlength').actualLength }}
                 character(s)
               </small>
             </div>
-
           </div>
         </div>
         <div class="card flex justify-content-center">
           <div class="button_container">
             <p-button type="submit"
-              label="Submit"
-              [disabled]="formGroup.invalid"
+                      label="Submit"
+                      styleClass="p-button-success"
+                      [disabled]="formGroup.invalid || submitted"
+            >
+            </p-button>
+            <p-button type="submit"
+                      label="{{ loginText }}"
+                      styleClass="p-button-link"
+                      (click)="toTheLoginPage()"
+                      p-button-success
             >
             </p-button>
           </div>
-
         </div>
       </div>
-
     </form>
-
-    <div class="form-signup">
-      <h2><u>{{ loginTitle }}</u></h2>
-
-      <div class="form_input_container">
-
-
-        <!--использовать PrimeNg для инпутов и хорошей формы-->
-
-
-      </div>
-
-    </div>
-
   </div>
 </div>
-<footer class="footer">
 
-    <p-button (click)="alert()" label="Buy me a coffee"></p-button>
-
-</footer>

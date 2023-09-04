@@ -1,0 +1,85 @@
+<div class="app-container">
+  <div class="form-wrapper">
+    <form class="form-registration"
+          [formGroup]="formGroup"
+          (ngSubmit)="loginButton()"
+    >
+      <h2><b>{{ loginTitle }}</b></h2>
+      <div class="form_input_container">
+        <div class="card flex flex-wrap justify-content-center gap-3 container"
+             [ngClass]="{
+             invalid: formGroup.get('username').touched &&
+             formGroup.get('username').invalid }"
+        >
+          <label for="username"><b>Username:</b></label>
+          <span class="p-input-icon-left">
+            <i class="pi pi-user"></i>
+            <input id="username"
+                   type="email"
+                   name="username" required
+                   pInputText
+                   placeholder="Username"
+                   formControlName="username"
+                   [(ngModel)]="username"
+            />
+          </span>
+          <div class="validation"
+               *ngIf="formGroup.get('username').touched &&
+                      formGroup.get('username').invalid">
+            <div class="small-container">
+              <small *ngIf="formGroup.get('username').errors.required">Enter email</small>
+              <small *ngIf="formGroup.get('username').errors.email">Enter a valid email</small>
+            </div>
+          </div>
+        </div>
+        <div class="card flex flex-wrap justify-content-center gap-3 container"
+             [ngClass]="{ invalid:
+             formGroup.get('password').touched &&
+             formGroup.get('password').invalid }"
+        >
+          <label for="password"><b>Password:</b></label>
+          <span class="p-input-icon-left">
+            <i class="pi pi-lock"></i>
+            <input id="password"
+                   type="password"
+                   name="password" required
+                   pInputText
+                   placeholder="Password"
+                   formControlName="password"
+                   [(ngModel)]="password" />
+          </span>
+          <div class="validation"
+               *ngIf="formGroup.get('password').touched &&
+                      formGroup.get('password').invalid"
+          >
+            <div class="small-container">
+              <small *ngIf="formGroup.get('password').errors.required">Enter a password</small>
+              <small
+                *ngIf="formGroup.get('password').hasError('minlength')">Enter a password of at least
+                {{ formGroup.get('password').getError('minlength').requiredLength }}
+                characters. Now it's
+                {{ formGroup.get('password').getError('minlength').actualLength }}
+                character(s)
+              </small>
+            </div>
+          </div>
+        </div>
+        <div class="card flex justify-content-center">
+          <div class="button_container">
+            <p-button type="submit"
+                      label="Submit"
+                      [disabled]="formGroup.invalid || submitted"
+            >
+            </p-button>
+            <p-button type="submit"
+                      label="{{ loginText }}"
+                      styleClass="p-button-link"
+                      (click)="toTheRegPage()"
+            >
+            </p-button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

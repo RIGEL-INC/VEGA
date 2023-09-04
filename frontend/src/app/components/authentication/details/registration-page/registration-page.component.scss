@@ -1,74 +1,64 @@
-* {}
-.nigger {
-  background-color: var(--background-color);
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-.form-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 860px;
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: var(--accent);
-  color: var(--text-color);
-  border-radius: 50px ;
-  box-shadow: 0px 70px 115px rgba(0, 0, 0, 0.3);
-  height: 500px;
-}
-u {
-  margin-bottom: 5px;
-}
-h2 {
-  text-align: center;
-}
-.form-registration {
-  padding: 20px;
-}
-.form-signup {
-  padding: 20px;
-}
-.footer {
-  height: 164px;
-  background-color: var(--background-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.buy_me_a_coffee {
-  background-color: #cccccc;
-  height: 50px;
-  width: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.form_input_container {
-  padding: 70px;
-}
-input {
-  margin-top: 5px;
-}
-label {
-  color: var(--text-main);
-  font-size: 20px;
-  padding: 10px;
-  margin-bottom: 10px;
-}
-small {
-  font-size: 17px;
-  font-weight: bold;
-  color: var(--text-danger);
-}
-.small-container {
-  position: absolute;
-  margin-top: 12px;
-}
-.container {
-  position: relative;
-  margin-bottom: 40px;
-}
-.button_container {
-  margin-top: 80px;
+.app-container {
+
+
+  .form-wrapper {
+    background-color: var(--light-bgc);
+    border-radius: 50px;
+    box-shadow: 0px 30px 20px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    padding: 50px;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    max-width: 400px; /* Максимальная ширина формы */
+    width: 100%;
+    box-sizing: border-box; /* Делает padding частью ширины */
+  }
+
+
+  .form-registration {
+    text-align: center;
+
+    .pi, pi-lock {
+      color: #242424;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .form_input_container {
+      .card {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        color: var(--text-main);
+        margin-bottom: 5px;
+      }
+
+      input {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+      }
+
+      .validation {
+        color: var(--text-danger);
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .button_container {
+        margin-top: 20px;
+
+      }
+    }
+  }
 }

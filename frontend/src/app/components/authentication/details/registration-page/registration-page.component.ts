@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../services/interfaces";
+import {AuthService} from "../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-registration-page',
@@ -9,41 +10,43 @@ import {User} from "../services/interfaces";
 })
 export class RegistrationPageComponent implements OnInit{
 
-
-  registerTitle = 'Register or ...'
-  loginTitle = 'Login'
+  username = '';
+  password = '';
+  token = '';
+  loginText = 'Already have an account? Come in!'
+  registerTitle = 'Register'
 
   formGroup: FormGroup | any;
-  value: string | undefined;
-  value2: string | undefined;
+  submitted = false;
 
+  constructor(
+    private auth: AuthService,
+    private router: Router, //Редирект
+    // private authService: RegistrationService,
+  ){}
 
-  submit() {
-    console.log(this.formGroup)
-    if (this.formGroup.invalid) {
-      return
-    }
-
-    const user: User = {
-      email: this.formGroup.value.email,
-      password: this.formGroup.value.password,
-    }
-
-    // будем что то делать (Отправляем запрос на сервер
-    // с этими данными и если все хорошо то сделать редирект,
-    // если нет, то вывести ошибки на страницу(мб алерт или
-    // всплывающую ошибку))
+  register(): void {
+    this.auth.register(this.username, this.password).subscribe(
+      (response) => { //в колбэке (response) => {...} сохраняется токен из ответа в переменную this.token, и он также сохраняется в localStorage.
+        this.token = response.token;
+        localStorage.setItem('token', this.token)
+        console.log("Регистрация аккаунта выполнена успешно!")
+        this.router.navigate([`profile/${this.username}`])
+      },
+      (error) => {
+        console.error('Ошибка при регистрации: ', error)
+      }
+    );
   }
 
-  alert() {
-    alert("Thank you <3. You just donated 1.000$")
+  toTheLoginPage() {
+    this.router.navigate([`login`])
   }
 
   ngOnInit() {
     this.formGroup = new FormGroup({
-      email: new FormControl(null, [
-        Validators.required,
-        Validators.email
+      username: new FormControl(null, [
+        Validators.required
       ]),
       password: new FormControl(null, [
         Validators.required,
@@ -52,4 +55,8 @@ export class RegistrationPageComponent implements OnInit{
     });
   }
 
+  removeToken($event: any) {  //logout in the future
+    localStorage.removeItem('token');
+    this.token = '';
+  }
 }

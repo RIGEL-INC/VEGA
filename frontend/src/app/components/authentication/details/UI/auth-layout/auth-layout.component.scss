@@ -1,19 +1,43 @@
-
-
 .header {
-  height: 300px;
-  background-color: royalblue;
-  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-bgc);
+  height: 200px; /* Высота хедера */
+  margin-bottom: 50px;
+  width: 100%; /* 100% ширины экрана */
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  .logo {
+    width: 150px;
+    height: 150px;
+    background: no-repeat center center;
+    background-size: contain; /* Масштабирование логотипа по содержимому */
+    background-color: #216ad7;
+  }
 }
-.logo {
-  width: 250px;
-  height: 250px;
-  background-color: #333ac6;
+
+.footer {
+  background-color: var(--main-bgc);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 100px;
+  width: 100%;
+  z-index: 1; // фиксит проблему с формой и футером
+  position: absolute;
+  margin-top: 795px;
+  bottom: 0;
+
+  .buy_me_a_coffee {
+    background-color: #cccccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #999999;
+    }
+  }
 }

@@ -1,15 +1,19 @@
 :root {
 
-  --background-color: #4169E1FF;
+
+
+  --main-bgc: #4169E1FF;
+  --light-bgc: #5278ea;
 
   --font-main: Abhaya Libre, sans-serif; // ???
 
 
-  --text-danger: #ff6a6a;
+  --text-danger: #c64a4a;
   --text-main: #fff;
   --text-color: #6ebeee;
-  --text-muted: #909090;
+  --light-mute: #909090;
   --accent: #216ad7;
+  --light-text: rgba(177, 177, 177, 0.95);
 
   --laptop-size: 1199px;
   --tablet-size: 959px;

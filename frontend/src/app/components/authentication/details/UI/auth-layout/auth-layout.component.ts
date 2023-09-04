@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AuthLayoutComponent {
 
+
+  alert() {
+    alert("Thank you <3. You just donated 1.000$")
+  }
 }

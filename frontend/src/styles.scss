@@ -1,23 +1,41 @@
 @use "app/components/styles/vars/vars";
 
-
 @import "node_modules/primeng/resources/themes/lara-light-blue/theme.css";
 @import "node_modules/primeng/resources/primeng.min.css";
 @import "primeicons/primeicons.css";
 
-
-
-
-
-
-
-
-
-* {
+body, html {
+  background-color: var(--main-bgc);
   margin: 0;
   padding: 0;
-  //background-color: var(--background-color);
-  font-family: var(--font-main);
+  height: 100%;
+  //font-family: var(--font-main);
+}
+
+.p-button.p-button-link {
+  color: var(--text-main);
+
+  :hover {
+    color: var(--light-mute)
+  }
 }
 
 
+
+/* Минимальную высота для body и html на 100% экрана обеспечит,
+что контент будет занимать всю высоту экрана, даже если его
+контент маленький. Обнуление стилей для всех элементов */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+/* Общие стили для контейнера приложения Центрирует контент по
+вертикали и горизонтали и обеспечивает минимальную высоту 100% экрана */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

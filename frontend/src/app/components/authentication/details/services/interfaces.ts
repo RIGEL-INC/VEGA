@@ -1,4 +1,10 @@
 export interface User {
-  email: string;
+  username: string;
   password: string;
+  returnSecureToken?: boolean;
+}
+
+export interface AuthResponse {
+  idToken: string;
+  expiresIn: string
 }
