@@ -1,8 +1,8 @@
 FROM maven:latest AS stage1
 WORKDIR /app
-COPY pom.xml /app
+COPY main/pom.xml /app
 RUN mvn dependency:resolve
-COPY . /app
+COPY main /app
 RUN mvn clean
 RUN mvn package -DskipTests
 
